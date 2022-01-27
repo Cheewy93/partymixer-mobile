@@ -6,32 +6,24 @@
  * @flow strict-local
  */
 
+import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
+import { NavigationContainer } from '@react-navigation/native';
 import React from 'react';
 import {
-  SafeAreaView,
-  ScrollView,
-  StatusBar,
-  StyleSheet,
-  Text,
-  useColorScheme,
-  View,
+  StyleSheet
 } from 'react-native';
-
-import {
-  Colors,
-  DebugInstructions,
-  Header,
-  LearnMoreLinks,
-  ReloadInstructions,
-} from 'react-native/Libraries/NewAppScreen';
-
+import { SafeAreaProvider } from 'react-native-safe-area-context';
 import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
-import { NavigationContainer } from '@react-navigation/native';
-
-import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
+import {
+  Colors
+} from 'react-native/Libraries/NewAppScreen';
+import ListScreen from './src/screens/ListScreen';
 import PlayerScreen from './src/screens/PlayerScreen';
 import SearchScreen from './src/screens/SearchScreen';
-import ListScreen from './src/screens/ListScreen';
+
+
+
+
 
 const Tab = createBottomTabNavigator();
 
@@ -81,11 +73,11 @@ const appSections = () => {
 const App = () => {
 
   return (
-    // <SafeAreaView style={{backgroundColor: Colors.lighter}}>
+    <SafeAreaProvider style={{backgroundColor: Colors.lighter}}>
       <NavigationContainer>
         {appSections()}
       </NavigationContainer>
-    // </SafeAreaView> 
+    </SafeAreaProvider> 
   );
 };
 
